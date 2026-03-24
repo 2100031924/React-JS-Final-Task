@@ -1,0 +1,480 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.ecommerce:producthub >----------------------
+[INFO] Building ProductHub Backend 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.0:run (default-cli) > test-compile @ producthub >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ producthub ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ producthub ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ producthub ---
+[INFO] skip non existing resourceDirectory E:\BusyBrains Assignment\backend\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ producthub ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot:3.2.0:run (default-cli) < test-compile @ producthub <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.0:run (default-cli) @ producthub ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-03-24T20:29:46.571+05:30  INFO 10792 --- [producthub] [           main] com.ecommerce.ProductHubApplication      : Starting ProductHubApplication using Java 17.0.18 with PID 10792 (E:\BusyBrains Assignment\backend\target\classes started by Administrator in E:\BusyBrains Assignment\backend)
+2026-03-24T20:29:46.595+05:30  INFO 10792 --- [producthub] [           main] com.ecommerce.ProductHubApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-03-24T20:29:48.143+05:30  INFO 10792 --- [producthub] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-24T20:29:48.247+05:30  INFO 10792 --- [producthub] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 85 ms. Found 2 JPA repository interfaces.
+2026-03-24T20:29:49.450+05:30  INFO 10792 --- [producthub] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-03-24T20:29:49.477+05:30  INFO 10792 --- [producthub] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-03-24T20:29:49.479+05:30  INFO 10792 --- [producthub] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-03-24T20:29:49.575+05:30  INFO 10792 --- [producthub] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-03-24T20:29:49.577+05:30  INFO 10792 --- [producthub] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2927 ms
+2026-03-24T20:29:49.672+05:30  INFO 10792 --- [producthub] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-24T20:29:49.976+05:30  INFO 10792 --- [producthub] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:producthub user=SA
+2026-03-24T20:29:49.978+05:30  INFO 10792 --- [producthub] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-24T20:29:49.990+05:30  INFO 10792 --- [producthub] [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:producthub'
+2026-03-24T20:29:50.218+05:30  INFO 10792 --- [producthub] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-24T20:29:50.313+05:30  INFO 10792 --- [producthub] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-03-24T20:29:50.372+05:30  INFO 10792 --- [producthub] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-24T20:29:50.829+05:30  INFO 10792 --- [producthub] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-24T20:29:52.300+05:30  INFO 10792 --- [producthub] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists products cascade 
+Hibernate: 
+    drop table if exists users cascade 
+Hibernate: 
+    create table products (
+        active boolean,
+        price numeric(10,2) not null,
+        stock integer,
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        updated_at timestamp(6),
+        description varchar(1000),
+        category varchar(255),
+        image_url varchar(255),
+        name varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table users (
+        created_at timestamp(6),
+        id bigint generated by default as identity,
+        updated_at timestamp(6),
+        address varchar(255),
+        email varchar(255) not null unique,
+        full_name varchar(255),
+        password varchar(255) not null,
+        phone varchar(255),
+        provider varchar(255),
+        provider_id varchar(255),
+        role varchar(255) not null check (role in ('USER','ADMIN')),
+        username varchar(255) not null unique,
+        primary key (id)
+    )
+2026-03-24T20:29:52.360+05:30  INFO 10792 --- [producthub] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-24T20:29:55.588+05:30  WARN 10792 --- [producthub] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-24T20:29:57.999+05:30  INFO 10792 --- [producthub] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@27f8f1cc, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@473c491, org.springframework.security.web.context.SecurityContextHolderFilter@20e25bf7, org.springframework.security.web.header.HeaderWriterFilter@2a9fd482, org.springframework.web.filter.CorsFilter@3ede428e, org.springframework.security.web.authentication.logout.LogoutFilter@2e0de20d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5e783f78, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2d21d12b, com.ecommerce.security.JwtAuthenticationFilter@64d42d3d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@435a4d2d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@70a8654, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62129f97, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22db974d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@671c71e8, org.springframework.security.web.session.SessionManagementFilter@653a5a, org.springframework.security.web.access.ExceptionTranslationFilter@5e445ffe, org.springframework.security.web.access.intercept.AuthorizationFilter@59b43e35]
+2026-03-24T20:29:59.563+05:30  INFO 10792 --- [producthub] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-03-24T20:29:59.607+05:30  INFO 10792 --- [producthub] [           main] com.ecommerce.ProductHubApplication      : Started ProductHubApplication in 13.988 seconds (process running for 15.07)
+Hibernate: 
+    select
+        count(*) 
+    from
+        users u1_0
+Hibernate: 
+    insert 
+    into
+        users
+        (address, created_at, email, full_name, password, phone, provider, provider_id, role, updated_at, username, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        users
+        (address, created_at, email, full_name, password, phone, provider, provider_id, role, updated_at, username, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    select
+        count(*) 
+    from
+        products p1_0
+Hibernate: 
+    insert 
+    into
+        products
+        (active, category, created_at, description, image_url, name, price, stock, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        products
+        (active, category, created_at, description, image_url, name, price, stock, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        products
+        (active, category, created_at, description, image_url, name, price, stock, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        products
+        (active, category, created_at, description, image_url, name, price, stock, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        products
+        (active, category, created_at, description, image_url, name, price, stock, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+Hibernate: 
+    insert 
+    into
+        products
+        (active, category, created_at, description, image_url, name, price, stock, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-03-24T20:30:21.346+05:30  INFO 10792 --- [producthub] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-24T20:30:21.352+05:30  INFO 10792 --- [producthub] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-03-24T20:30:21.361+05:30  INFO 10792 --- [producthub] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2026-03-24T20:30:21.630+05:30  WARN 10792 --- [producthub] [nio-8080-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/auth/login' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.active,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        p1_0.active
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.active,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        p1_0.active
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.active,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        p1_0.active
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.active,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.image_url,
+        p1_0.name,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at 
+    from
+        products p1_0 
+    where
+        p1_0.active
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.address,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.full_name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.provider,
+        u1_0.provider_id,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+[INFO] ------------------------------------------------------------------------
