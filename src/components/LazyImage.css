@@ -1,0 +1,62 @@
+.lazy-image-container {
+  position: relative;
+  overflow: hidden;
+  background: #1e293b;
+}
+
+.lazy-image-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  overflow: hidden;
+}
+
+.skeleton-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.lazy-image-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.lazy-image-fallback svg {
+  width: 32px;
+  height: 32px;
+}
+
+.lazy-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
